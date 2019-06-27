@@ -1,13 +1,13 @@
 const express = require("express");
 const router = express.Router();
 
-const Costumer = require(process.env.PWD + "/model/costumer");
+const models = require(process.env.PWD + '/models/index')
+const Costumer = models.Costumer
+
 
 /* GET home page. */
-router.get("/", Costumer, (req, res) => {
-  console.log(req.felipe);
-
-  res.json({ valor: 10 });
+router.get("/", Costumer.getAll, (req, res) => {
+  res.json({ list: req.costumerList });
 });
 
 module.exports = router;

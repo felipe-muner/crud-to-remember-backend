@@ -1,3 +1,4 @@
+const moment = require("moment")
 module.exports = function(sequelize, DataTypes) {
   const Costumer = sequelize.define(
     "Costumer",
@@ -20,19 +21,14 @@ module.exports = function(sequelize, DataTypes) {
   );
 
   Costumer.getAll = function(req, res, next) {
-    Costumer.findAll()
-      .then(c => {
+    Costumer.findAll().then(c => {
         c.map(e => {
-          e.dataValues.BirthdayFormatted = moment(e.Birthday).format(
-            "DD/MM/YYYY"
-          );
-          e.dataValues.Age = moment().diff(e.Birthday, "years");
+          e.dataValues.BirthdayFormatted = moment(e.Birthday).format("DD/MM/YYYY")
+          e.dataValues.Age = moment().diff(e.Birthday, "years")
         });
-        res.json({ Costumer: c });
-      })
-      .catch(err => {
-        next(err);
-      });
+        req.costumerList = c
+        next()
+      }).catch(err => next(err))
   };
 
   return Costumer;
