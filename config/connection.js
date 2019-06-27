@@ -1,3 +1,8 @@
-const sequelize = new Sequelize("SimpleCrud", "root", "password", {
-  dialect: "mysql"
-});
+const sequelize = new Sequelize(
+  process.env.DB_BASE,
+  process.env.DB_USER,
+  process.env.DB_PASS,
+  {
+    dialect: "mysql"
+  }
+);
