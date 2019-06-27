@@ -6,7 +6,6 @@ const helmet = require("helmet");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const sequelize = require(process.env.PWD + "/config/connection");
 
 var app = express();
 

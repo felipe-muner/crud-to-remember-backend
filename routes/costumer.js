@@ -3,11 +3,11 @@ const router = express.Router();
 
 const Costumer = require(process.env.PWD + "/model/costumer");
 
-console.log(String.toString(Costumer));
-
 /* GET home page. */
-router.get("/", (req, res, next) => {
-  res.json({ valor: "" });
+router.get("/", Costumer, (req, res) => {
+  console.log(req.felipe);
+
+  res.json({ valor: 10 });
 });
 
 module.exports = router;
