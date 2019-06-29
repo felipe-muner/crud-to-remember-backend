@@ -12,6 +12,7 @@ var app = express();
 app.use(helmet());
 app.use(helmet.noCache());
 app.use(helmet.hidePoweredBy({ setTo: "PHP 5.5.0" }));
+app.use(cors())
 
 const index = require(process.env.PWD + "/routes/index");
 const costumer = require(process.env.PWD + "/routes/costumer");
