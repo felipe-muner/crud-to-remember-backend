@@ -7,7 +7,7 @@ const Costumer = models.Costumer
 
 /* GET home page. */
 router.get("/", Costumer.getAll, (req, res) => {
-  res.json({ list: req.costumerList });
+  res.json(req.costumerList)
 });
 
 module.exports = router;
