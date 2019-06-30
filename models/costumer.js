@@ -27,7 +27,7 @@ module.exports = function (sequelize, DataTypes) {
     Costumer.findAll().then(c => {
       c.map(e => {
         e.dataValues.BirthdayFormatted = moment(e.Birthday).format('DD/MM/YYYY')
-        e.dataValues.sexFormatted = Util.formatSex(e.Sex)
+        e.dataValues.SexFormatted = Util.formatSex(e.Sex)
         e.dataValues.Age = moment().diff(e.Birthday, 'years')
       })
       req.costumerList = c
