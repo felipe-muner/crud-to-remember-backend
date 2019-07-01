@@ -8,6 +8,8 @@ const Costumer = models.Costumer
 /* GET home page. */
 router.get("/", Costumer.getAll, (req, res) => {
   res.json(req.costumerList)
-});
+}).post('/save', Costumer.save, (req,res) => {
+  res.json('Created Successfully')
+})
 
 module.exports = router;

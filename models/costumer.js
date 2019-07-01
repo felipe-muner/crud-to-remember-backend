@@ -35,5 +35,18 @@ module.exports = function (sequelize, DataTypes) {
     }).catch(err => next(err))
   }
 
+  Costumer.save = function(req, res, next) {
+    console.log(req.body);
+    Costumer.create({
+      Name: req.body.Name,
+      Birthday: req.body.Birthday,
+      Sex: req.body.Sex,
+      BirthdayPlace: req.body.BirthdayPlace,
+      SiblingNumber: req.body.SiblingNumber
+    }).then(() => {
+      next()
+    }).catch(err => { next(err) })
+  }
+
   return Costumer
 }
