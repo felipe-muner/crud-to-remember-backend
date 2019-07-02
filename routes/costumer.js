@@ -10,6 +10,10 @@ router.get("/", Costumer.getAll, (req, res) => {
   res.json(req.costumerList)
 }).post('/save', Costumer.save, (req,res) => {
   res.json('Created Successfully')
+}).post('/edit', Costumer.edit, (req,res) => {
+  res.put('Edited')
+}).post('/toggle-active', Costumer.toggleActive, (req,res) => {
+  res.put('Toggled Active')
 })
 
 module.exports = router;

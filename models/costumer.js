@@ -36,13 +36,36 @@ module.exports = function (sequelize, DataTypes) {
   }
 
   Costumer.save = function(req, res, next) {
-    console.log(req.body);
     Costumer.create({
       Name: req.body.Name,
       Birthday: req.body.Birthday,
       Sex: req.body.Sex,
       BirthdayPlace: req.body.BirthdayPlace,
       SiblingNumber: req.body.SiblingNumber
+    }).then(() => {
+      next()
+    }).catch(err => { next(err) })
+  }
+
+  Costumer.toggleActive = function(req, res, next) {
+    Costumer.update({
+      Active: req.body.toggleActive
+    }, {
+      where: { ID: req.body.id }
+    }).then(() => {
+      next()
+    }).catch(err => { next(err) })
+  }
+
+  Costumer.edit = function(req, res, next) {
+    Costumer.update({
+      Name: req.body.Name,
+      Birthday: req.body.Birthday,
+      Sex: req.body.Sex,
+      BirthdayPlace: req.body.BirthdayPlace,
+      SiblingNumber: req.body.SiblingNumber
+    }, {
+      where: { ID: req.body.id }
     }).then(() => {
       next()
     }).catch(err => { next(err) })
