@@ -51,7 +51,7 @@ module.exports = function (sequelize, DataTypes) {
     Costumer.update({
       Active: req.body.toggleActive
     }, {
-      where: { ID: req.body.id }
+      where: { ID: req.body.ID }
     }).then(() => {
       next()
     }).catch(err => { next(err) })
@@ -65,7 +65,7 @@ module.exports = function (sequelize, DataTypes) {
       BirthdayPlace: req.body.BirthdayPlace,
       SiblingNumber: req.body.SiblingNumber
     }, {
-      where: { ID: req.body.id }
+      where: { ID: req.body.ID }
     }).then(() => {
       next()
     }).catch(err => { next(err) })
